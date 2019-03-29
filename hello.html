@@ -1,0 +1,39 @@
+<!DOCTYPE html>
+<link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/css/bootstrap.min.css" integrity="sha384-ggOyR0iXCbMQv3Xipma34MD+dH/1fQ784/j6cY/iJTQUOhcWr7x9JvoRxT2MZw1T" crossorigin="anonymous">
+<style>
+    [v-cloak]{
+        display: none;
+    }
+    [v-cloak]::before {content: "loading..."}
+</style>
+<div id="app">
+    <div class="container">
+        <form v-show="!submitted" class="mt-5">
+            <div class="form-group">
+                <label for="email">Email</label>
+                <input type="email" v-model:value="email" class="form-control form-control-1g">
+            </div>
+            <button type="submit" @click.prevent="process" class="btn btn-primary">Submit</button>
+        </form>
+        <h2 v-show="submitted" v-cloak class="mt-5">Thank for submitting</h2>
+    </div>
+</div>
+
+<script src="https://cdn.jsdelivr.net/npm/vue"></script>
+<script>
+    var vm = new Vue({
+        el: '#app',
+        data: {
+            email: 'cuong@ahihi.com',
+            submitted: false
+        },
+        methods: {
+            process: function(event){
+                this.submitted = true;
+            }
+        }
+    })
+</script>
+
+
+
